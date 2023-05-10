@@ -1,0 +1,9 @@
+<%- include("partials/header.ejs") %>
+
+    <h1>Compose</h1>
+    <form action="/copose" method="post">
+        <input type="text" name="blog" autocomplete="off">
+        <button type="submit" name="button">Publish</button>
+    </form>
+
+<%- include("partials/footer.ejs") %>

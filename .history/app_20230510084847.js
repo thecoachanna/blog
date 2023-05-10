@@ -43,7 +43,7 @@ app.post('/compose', (req, res) => {
 
   const post = {
     title: req.body.postTitle,
-    content: req.body.postBody
+    body: req.body.postBody
   }
 
   posts.push(post)
@@ -53,16 +53,13 @@ app.post('/compose', (req, res) => {
 
 // Post Page
 app.get('/posts/:postName', (req, res) => {
-  const requestedTitle = _.lowerCase(req.params.postName)
+  const requestedTitle = _.lowerCasereq.params.postName
 
-  posts.forEach(function(post) {
-    const storedTitle = _.lowerCase(post.title)
+  posts.forEach(function (post) {
+    const storedTitle = post.title
 
     if (storedTitle === requestedTitle) {
-      res.render('post', {
-        title: post.title,
-        content: post.content
-      })
+      console.log("Match Found")
     }
   })
 })

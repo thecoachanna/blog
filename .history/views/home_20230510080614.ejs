@@ -3,9 +3,8 @@
     <h1>Home</h1>
     <p><%= startingContent %></p>
 
-    <% newPost.map(p => { %>
-        <h1><%= p.title %></h1>
-        <p><%= p.body %></p>
+    <% posts.map(p => { %>
+        
     <% }) %>
 
 <%- include("partials/footer.ejs") %>

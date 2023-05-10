@@ -9,7 +9,6 @@ const aboutContent = "Hac habitasse platea dictumst vestibulum rhoncus est pelle
 const contactContent = "Scelerisque eleifend donec pretium vulputate sapien. Rhoncus urna neque viverra justo nec ultrices. Arcu dui vivamus arcu felis bibendum. Consectetur adipiscing elit duis tristique. Risus viverra adipiscing at in tellus integer feugiat. Sapien nec sagittis aliquam malesuada bibendum arcu vitae. Consequat interdum varius sit amet mattis. Iaculis nunc sed augue lacus. Interdum posuere lorem ipsum dolor sit amet consectetur adipiscing elit. Pulvinar elementum integer enim neque. Ultrices gravida dictum fusce ut placerat orci nulla. Mauris in aliquam sem fringilla ut morbi tincidunt. Tortor posuere ac ut consequat semper viverra nam libero.";
 
 const app = express();
-const posts = []
 
 app.set('view engine', 'ejs');
 
@@ -18,8 +17,7 @@ app.use(express.static("public"));
 
 // Home Page
 app.get('/', (req, res) => {
-  res.render('home', { startingContent: homeStartingContent, newPost: posts })
-
+  res.render('home', { startingContent: homeStartingContent })
 })
 
 // About Page
@@ -44,10 +42,8 @@ app.post('/compose', (req, res) => {
     title: req.body.postTitle,
     body: req.body.postBody
   }
-
-  posts.push(post)
-
-  res.redirect('/')
+  console.log(post)
+  res.render('compose', {title: title, body: body})
 })
 
 

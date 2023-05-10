@@ -20,6 +20,7 @@ app.use(express.static("public"));
 app.get('/', (req, res) => {
   res.render('home', { startingContent: homeStartingContent, newPost: posts })
 
+  console.log(posts)
 })
 
 // About Page

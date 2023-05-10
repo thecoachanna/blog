@@ -18,8 +18,7 @@ app.use(express.static("public"));
 
 // Home Page
 app.get('/', (req, res) => {
-  res.render('home', { startingContent: homeStartingContent, newPost: posts })
-
+  res.render('home', { startingContent: homeStartingContent })
 })
 
 // About Page
@@ -44,8 +43,8 @@ app.post('/compose', (req, res) => {
     title: req.body.postTitle,
     body: req.body.postBody
   }
-
-  posts.push(post)
+  post.push()
+  console.log(post)
 
   res.redirect('/')
 })
